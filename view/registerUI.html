@@ -1,0 +1,65 @@
+<!--/**-->
+<!-- * https://liuhongwei3.github.io Inc.-->
+<!-- * Name: registerUI.php-->
+<!-- * Date: 2020/6/2 下午7:00-->
+<!-- * Author: Tadm-->
+<!-- * Copyright (c) 2020 All Rights Reserved.-->
+<!-- */-->
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>书店商城用户注册</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/index.css"/>
+</head>
+<body>
+<div class="box">
+    <div class="main">
+        <form method="post" action="../data/register.php">
+            <table border>
+                <caption>Tadm 书店商城欢迎您~！</caption>
+                <tr>
+                    <th>用户名：</th>
+                    <td>
+                        <input type="text" name="uname"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>密码：</th>
+                    <td>
+                        <input type="password" name="upassword"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>常用地址：</th>
+                    <td>
+                        <input type="text" name="address"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>联系电话：</th>
+                    <td>
+                        <input type="text" name="phone"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>账户充值：</th>
+                    <td>
+                        <input type="number" name="account"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input class="btn btn-warning" type="reset">
+                        <input class="btn btn-success" type="submit" value="注册">
+                    </td>
+                </tr>
+            </table>
+            <a href='loginUI.php'>已经有账户了！直接去登陆 >>></a>
+        </form>
+    </div>
+</div>
+</body>
+</html>

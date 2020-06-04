@@ -1,0 +1,33 @@
+<!--
+  ~ https://liuhongwei3.github.io Inc.
+  ~ Name: index.html
+  ~ Date: 2020/6/4 上午8:30
+  ~ Author: Tadm
+  ~ Copyright (c) 2020 All Rights Reserved.
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tadm 书店商城管理</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+</head>
+<?php session_start();
+$aname = $_SESSION['aname'];?>
+<body>
+<center>
+    <h4>Hello Manager~&nbsp;&nbsp;&nbsp;&nbsp;<span class="uname" title="当前登录用户"><?php echo $aname;?></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a title="点击退出登录" href="../common/initsess.php">退出</a>
+        <a class="to_manage" href="../../data/books_list.php">书店大厅 >></a>
+    </h4>
+    <div class="list-group">
+        <a class="list-group-item list-group-item-success" href="../data/manage_books.php">管理书籍</a>
+        <a class="list-group-item list-group-item-warning" href="../data/manage_users.php">管理用户</a>
+        <a class="list-group-item list-group-item-primary" href="../data/manage_orders.php">管理订单</a>
+        <a class="list-group-item list-group-item-info" href="../data/manage_orders_detail.php">管理详情订单</a>
+    </div>
+</center>
+</body>
+</html>

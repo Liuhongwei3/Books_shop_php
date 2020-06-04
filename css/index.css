@@ -1,0 +1,60 @@
+/*
+ * https://liuhongwei3.github.io Inc.
+ * Name: index.css
+ * Date: 2020/6/2 下午5:23
+ * Author: Tadm
+ * Copyright (c) 2020 All Rights Reserved.
+ */
+
+* {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.uname {
+    color: #0088cc;
+}
+
+.main {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #999999;
+}
+
+table {
+    width: 90%;
+    text-align: center;
+}
+
+img {
+    border-radius: 10%;
+}
+
+caption {
+    text-align: center;
+    caption-side: top;
+}
+
+.to_manage {
+    float: right;
+    margin-right: 50px;
+    font-size: 0.7em;
+}
+
+.list-group-item {
+    width: 400px;
+}
+
+.edit-book {
+    border: 1px solid;
+    width: 40%;
+}
+
+td, th {
+    border: 1px solid;
+}
+
+.edit-book input {
+    width: 90%;
+}

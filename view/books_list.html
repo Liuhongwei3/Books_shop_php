@@ -1,0 +1,76 @@
+<!--
+  ~ https://liuhongwei3.github.io Inc.
+  ~ Name: books_list.html
+  ~ Date: 2020/6/2 下午3:21
+  ~ Author: Tadm
+  ~ Copyright (c) 2020 All Rights Reserved.
+  -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Books list</title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+<?php session_start();
+$uname = isset($_SESSION['uname'])?$_SESSION['uname']:'';
+if(!empty($uname)){?>
+<h3>
+    Tadm 书店商城 --- hello
+    <span class="uname" title="当前登录管理员"><?php echo $uname;?></span>
+    <a title="点击退出登录" href="../common/initsess.php">退出</a>
+    <a class="to_manage" href="../manager/data/index.php">管理 >></a>
+</h3>
+<?php }else{?>
+<h3>
+    Tadm 书店商城 --- hello 游客~
+    <a class="to_manage" href="../view/loginUI.php">去登录 >></a>
+</h3>
+<?php } ?>
+
+<table width=80% border cellspacing=0>
+    <caption>
+        <form style="text-align:right">
+            书籍名模糊搜索:<input type='text' name='keyword'/><input class="btn btn-info" type='submit' value='搜索'/>
+        </form>
+    </caption>
+    <tr>
+        <th>编号</th>
+        <th>书籍名称</th>
+        <th title="点击切换排序">
+            <a href="?orderfld=bprice&ordertype=<?php echo ($orderfld=='bprice')?$ordertype:'desc' ?>&keyword=<?php echo $keyword?>">
+                书籍价格
+            </a>
+        </th>
+        <th>出版社</th>
+        <th>库存(本)</th>
+        <th>操作</th>
+    </tr>
+    <?php if(!empty($data)){
+        foreach($data as $v){?>
+    <tr>
+        <td><?php echo $v['bid'];?></td>
+        <td><?php echo $v['bname'];?></td>
+        <td><?php echo $v['bprice'];?></td>
+        <td><?php echo $v['bpublish'];?></td>
+        <td><?php echo $v['bstock'];?></td>
+        <td><a href="../data/addCart.php?bid=<?php echo $v['bid'];?>" onclick="alert('加入购物车成功~')">加入购物车</a>
+        </td>
+    </tr>
+    <?php }}?>
+    <tr>
+        <td colspan="6" align="right"><?php echo $str ?></td>
+    </tr>
+</table>
+<div>
+    <a href="../data/showCart.php">查看购物车</a>
+</div>
+</body>
+</html>

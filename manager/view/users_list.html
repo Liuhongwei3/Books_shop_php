@@ -1,0 +1,77 @@
+<!--
+  ~ https://liuhongwei3.github.io Inc.
+  ~ Name: users_list.html
+  ~ Date: 2020/6/4 上午10:21
+  ~ Author: Tadm
+  ~ Copyright (c) 2020 All Rights Reserved.
+  -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Users list</title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/index.css">
+</head>
+<?php session_start();
+$aname = $_SESSION['aname'];?>
+<body>
+<h3>
+    Tadm 书店商城用户管理 --- hello
+    <span class="uname" title="当前登录管理员"><?php echo $aname;?></span>
+    <a title="点击退出登录" href="../common/initsess.php">退出</a>
+    <a class="to_manage" href="../data/index.php">管理大厅 >></a>
+</h3>
+
+<table width=80% border cellspacing=0>
+    <caption>
+        <form style="text-align:right">
+            用户名模糊搜索:<input type='text' name='keyword'/><input class="btn btn-info" type='submit' value='搜索'/>
+        </form>
+    </caption>
+    <?php if(!empty($data)){?>
+    <tr>
+        <th>编号</th>
+        <th>
+            <a href="?orderfld=uname&ordertype=<?php echo ($orderfld=='uname')?$ordertype:'desc' ?>&keyword=<?php echo $keyword?>">
+                用户名称
+            </a>
+        </th>
+        <th>用户地址</th>
+        <th>用户电话</th>
+        <th>用户余额</th>
+        <th colspan="3">操作</th>
+    </tr>
+    <?php foreach($data as $v){?>
+    <tr>
+        <td><?php echo $v['uid'];?></td>
+        <td><?php echo $v['uname'];?></td>
+        <td><?php echo $v['uaddr'];?></td>
+        <td><?php echo $v['uphone'];?></td>
+        <td><?php echo $v['uaccount'];?></td>
+        <td><a href="../view/show_desc_user.php?uid=<?php echo $v['uid']?>">详细信息</a></td>
+        <td><a href="../view/edit_user.php?uid=<?php echo $v['uid']?>">修改</a></td>
+        <td><a href="../data/users/delete_user.php?uid=<?php echo $v['uid']?>"
+               onclick="return confirm('确认删除吗？');">删除</a></td>
+    </tr>
+    <?php }?>
+    <tr>
+        <td colspan="8"><?php echo $str; ?></td>
+    </tr>
+    <?php }else{
+            echo "<center>
+    <h4>暂时没有找到符合条件的用户!</h4>
+    <a href='../data/manage_users.php'>返回</a>
+    </center>";
+    }?>
+    <tr>
+        <td style="text-align: right" colspan="8"><a href="../view/add_user.php">添加用户 >></a></td>
+    </tr>
+</table>
+</body>
+</html>
